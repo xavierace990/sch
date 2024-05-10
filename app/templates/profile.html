@@ -1,0 +1,35 @@
+<!-- profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h2>User Profile</h2>
+    {% if student_profile %}
+        <p>Username: {{ student_profile.user.username }}</p>
+        {% if student_profile.profile_picture %}
+            <img width="100px" style="border-radius: 50%;" src="{{ student_profile.profile_picture.url }}" alt="Profile Picture">
+        {% else %}
+            <!-- Use Font Awesome icon as default avatar -->
+            <i class="fas fa-user-circle fa-5x"></i>
+        {% endif %}
+        <a href="{% url 'settings' %}">Settings</a>
+        <!-- Add other profile information as needed -->
+    {% else %}
+        <p>No profile information available.</p>
+    {% endif %}
+    
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
+
+
