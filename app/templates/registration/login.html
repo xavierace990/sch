@@ -87,12 +87,7 @@ https://templatemo.com/tm-586-scholar
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Serach Start ***** -->
-                    <div class="search-input">
-                      <form action="{% url 'search_list' %}" id="search" method="GET">
-                        <input type="text" placeholder="Type Something" id='searchText' name="q" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
+                  
                     <!-- ***** Serach Start ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
@@ -165,7 +160,22 @@ https://templatemo.com/tm-586-scholar
     </div>
   </div>
 
-
+    <div class="text d-flex justify-content-center mb-3">
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+    <div class="border text-center mb-3">
+        <p>or</p>
+    </div>
+    <div class="google d-flex justify-content-center mb-3">
+        <button class="btn btn-light">
+            <img src="{% static 'assets/images/images_1-removebg-preview (1).png' %}" alt="" width="50px"> 
+            <a href="{% url 'social:begin' 'google-oauth2' %}" style="text-decoration: none;">
+                Sign Up with Google</a>
+        </button>
+    </div>
+    <div class="text d-flex justify-content-center">
+        <p>By signing up to create an account I accept Company's <a href="">Terms of Use and Privacy Policy.</a></p>
+    </div>
 
   <div class="section about-us">
     <div class="container">
